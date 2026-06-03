@@ -1,5 +1,5 @@
 {
-  "name": "Practica7_ConcertBox-Backend",
+  "name": "practica7_concertbox-backend",
   "version": "1.0.0",
   "description": "Backend for ConcertBox",
   "main": "src/server.js",

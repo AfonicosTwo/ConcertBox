@@ -23,6 +23,14 @@ const userSchema = new mongoose.Schema({
         required: [true, 'La contraseña es obligatoria'],
         minlength: [6, 'La contraseña debe tener al menos 6 caracteres']
     },
+    bio: {
+        type: String,
+        default: '¡Hola! Soy un amante de la música en vivo.'
+    },
+    profilePicture: {
+        type: String,
+        default: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150'
+    },
     createdAt: {
         type: Date,
         default: Date.now

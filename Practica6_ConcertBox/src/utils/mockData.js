@@ -86,6 +86,61 @@ export const mockEvents = [
         imageUrl: 'https://images.unsplash.com/photo-1526478806334-5fd488fcaabc?w=800&auto=format&fit=crop&q=60',
         description: 'Fin de semana épico con dos setlists completamente diferentes. Puro heavy metal.',
         setlist: ['Master of Puppets', 'Enter Sandman', 'Nothing Else Matters', 'One', 'Seek & Destroy']
+    },
+    {
+        id: '9',
+        artist: 'Paul McCartney',
+        tour: 'Got Back Tour',
+        location: 'Foro Sol, CDMX',
+        date: '2024-11-14',
+        rating: 5,
+        imageUrl: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=800&auto=format&fit=crop&q=60',
+        description: 'El legendario Beatle regresó a México con un show de más de 3 horas tocando los clásicos que marcaron generaciones.',
+        setlist: ['A Hard Day\'s Night', 'Let It Be', 'Hey Jude', 'Live and Let Die', 'Band on the Run']
+    },
+    {
+        id: '10',
+        artist: 'Taylor Swift',
+        tour: 'The Eras Tour',
+        location: 'Foro Sol, CDMX',
+        date: '2023-08-24',
+        rating: 5,
+        imageUrl: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&auto=format&fit=crop&q=60',
+        description: 'El histórico debut de Taylor Swift en México. Cuatro noches agotadas que paralizaron la ciudad.',
+        setlist: ['Cruel Summer', 'You Belong With Me', 'All Too Well (10 Min)', 'Don\'t Blame Me', 'Karma']
+    },
+    {
+        id: '11',
+        artist: 'Iron Maiden',
+        tour: 'The Future Past Tour',
+        location: 'Foro Sol, CDMX',
+        date: '2024-11-20',
+        rating: 4,
+        imageUrl: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&auto=format&fit=crop&q=60',
+        description: 'Iron Maiden regresó con su espectacular escenografía cyberpunk y clásicos imperdibles de Somewhere in Time y Senjutsu.',
+        setlist: ['Caught Somewhere in Time', 'The Writing on the Wall', 'Fear of the Dark', 'The Trooper', 'Wasted Years']
+    },
+    {
+        id: '12',
+        artist: 'Bruno Mars',
+        tour: 'Live in Mexico',
+        location: 'Estadio GNP, CDMX',
+        date: '2024-08-10',
+        rating: 5,
+        imageUrl: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&auto=format&fit=crop&q=60',
+        description: 'Inaugurando el renovado Estadio GNP con una dosis increíble de funk, pop y baile sin parar.',
+        setlist: ['24K Magic', 'Finesse', 'Treasure', 'Locked Out of Heaven', 'Uptown Funk']
+    },
+    {
+        id: '13',
+        artist: 'Madonna',
+        tour: 'The Celebration Tour',
+        location: 'Palacio de los Deportes, CDMX',
+        date: '2024-04-26',
+        rating: 4,
+        imageUrl: 'https://images.unsplash.com/photo-1482440308425-276ad0f28b19?w=800&auto=format&fit=crop&q=60',
+        description: 'La reina del pop celebró cuatro décadas de éxitos con una producción deslumbrante en la capital.',
+        setlist: ['Nothing Really Matters', 'Into the Groove', 'Like a Prayer', 'Vogue', 'Bitch I\'m Madonna']
     }
 ];
 

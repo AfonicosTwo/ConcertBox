@@ -22,7 +22,7 @@ const getUpcomingEvents = async (req, res) => {
                 countryCode: 'MX',
                 keyword: keyword || '',
                 sort: 'date,asc',
-                size: 10
+                size: 50
             }
         });
 

@@ -19,7 +19,9 @@ export default function Explorar() {
             if (result.error || result.events.length === 0) {
                 setRecommendations(mockEvents.slice(0, 4));
             } else {
-                setRecommendations(result.events.slice(0, 4));
+                const realIds = new Set(result.events.map(e => e.id));
+                const uniqueMocks = mockEvents.filter(e => !realIds.has(e.id));
+                setRecommendations([...result.events, ...uniqueMocks].slice(0, 4));
             }
         }
         fetchInitial();
@@ -35,17 +37,23 @@ export default function Explorar() {
         // Buscar en la API de Ticketmaster
         const result = await getUpcomingEvents(searchTerm);
         
-        if (result.error || result.events.length === 0) {
-            // Si la API falla o no encuentra nada, buscar en mockData localmente
-            const filtered = mockEvents.filter(event => 
-                event.artist.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                event.tour.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                event.location.toLowerCase().includes(searchTerm.toLowerCase())
-            );
-            setResults(filtered);
+        // Buscar en mockData localmente también
+        const localFiltered = mockEvents.filter(event => 
+            event.artist.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            event.tour.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            event.location.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+
+        let combined = [];
+        if (!result.error && result.events.length > 0) {
+            // Unir resultados de Ticketmaster y locales sin duplicar IDs
+            const realIds = new Set(result.events.map(e => e.id));
+            const uniqueMocks = localFiltered.filter(e => !realIds.has(e.id));
+            combined = [...result.events, ...uniqueMocks];
         } else {
-            setResults(result.events);
+            combined = localFiltered;
         }
+        setResults(combined);
         
         setIsLoading(false);
     };

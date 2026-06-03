@@ -42,6 +42,8 @@ const registerUser = async (req, res) => {
                 _id: user._id,
                 username: user.username,
                 email: user.email,
+                bio: user.bio,
+                profilePicture: user.profilePicture,
                 token: generateToken(user._id)
             });
         } else {
@@ -71,6 +73,8 @@ const loginUser = async (req, res) => {
                 _id: user._id,
                 username: user.username,
                 email: user.email,
+                bio: user.bio,
+                profilePicture: user.profilePicture,
                 token: generateToken(user._id)
             });
         } else {
@@ -98,4 +102,42 @@ const getUserProfile = async (req, res) => {
     }
 };
 
-export { registerUser, loginUser, getUserProfile };
+// @desc    Actualizar perfil de usuario
+// @route   PUT /api/auth/profile
+// @access  Private
+const updateUserProfile = async (req, res) => {
+    try {
+        const user = await User.findById(req.user._id);
+
+        if (user) {
+            user.username = req.body.username || user.username;
+            user.email = req.body.email || user.email;
+            user.bio = req.body.bio !== undefined ? req.body.bio : user.bio;
+            user.profilePicture = req.body.profilePicture || user.profilePicture;
+
+            if (req.body.password) {
+                user.password = req.body.password;
+            }
+
+            const updatedUser = await user.save();
+
+            return res.json({
+                _id: updatedUser._id,
+                username: updatedUser.username,
+                email: updatedUser.email,
+                bio: updatedUser.bio,
+                profilePicture: updatedUser.profilePicture,
+                token: generateToken(updatedUser._id)
+            });
+        } else {
+            return res.status(404).json({ error: 'Usuario no encontrado' });
+        }
+    } catch (error) {
+        if (error.code === 11000) {
+            return res.status(400).json({ error: 'El nombre de usuario o correo ya está en uso' });
+        }
+        return res.status(500).json({ error: error.message });
+    }
+};
+
+export { registerUser, loginUser, getUserProfile, updateUserProfile };

@@ -46,9 +46,17 @@ export default function Navbar() {
                 {user ? (
                     <>
                         <Link href="/perfil" style={{ color: '#fff', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                            <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#e91e63', display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: 'bold', fontSize: '0.9rem' }}>
-                                {user.username ? user.username[0].toUpperCase() : 'U'}
-                            </div>
+                            {user.profilePicture ? (
+                                <img 
+                                    src={user.profilePicture} 
+                                    alt={user.username} 
+                                    style={{ width: '32px', height: '32px', borderRadius: '50%', objectFit: 'cover', border: '1.5px solid var(--accent)' }} 
+                                />
+                            ) : (
+                                <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#e91e63', display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: 'bold', fontSize: '0.9rem' }}>
+                                    {user.username ? user.username[0].toUpperCase() : 'U'}
+                                </div>
+                            )}
                             <span style={{ fontSize: '0.9rem' }}>@{user.username}</span>
                         </Link>
                         <button 
