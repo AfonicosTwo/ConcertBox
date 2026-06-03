@@ -114,10 +114,3 @@ ConciertBox/
    ```bash
    npm run dev
    ```
-
----
-
-##  Seguridad e Ignorado de Archivos
-Este repositorio cuenta con reglas estrictas en `.gitignore` para garantizar que la información sensible no sea expuesta:
-* Los archivos `.env` y `.env.local` que contienen llaves privadas están completamente excluidos de las cargas.
-* Las carpetas temporales de compilación (`.next/`) y librerías (`node_modules/`) están debidamente ignoradas para optimizar el tamaño del repositorio.
